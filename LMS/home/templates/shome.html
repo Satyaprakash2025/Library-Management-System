@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        }
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        .header a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .header a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin: 20px;
+        }
+        .status {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .status h2 {
+            margin-top: 0;
+        }
+        .status p {
+            margin: 10px 0;
+        }
+        .status .info {
+            font-size: 18px;
+            color: #333;
+        }
+        .header .logout {
+            float: right;
+            background-color: #dc3545;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .header .logout:hover {
+            background-color: #c82333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/books_avail">Books Available</a>
+        <a href="/issue_book">Issue Book</a>
+        <a href="/logout/" class="logout">Logout</a>
+    </div>
+    <div class="container">
+        <div class="status">
+            <h2>Status</h2>
+            <p class="info">Welcome, {{ ob.name|title }}</p>
+            <p class="info">Your issued books are listed below</p>
+            <p class="info">You can browse available books and issue a new one using the navigation links above.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ISBN No</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Date of Issue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in issues %}
+                <tr>
+                    <td>{{ book.isbn_no.isbn_no }}</td>
+                    <td>{{ book.isbn_no.book_name }}</td>
+                    <td>{{ book.isbn_no.author }}</td>
+                    <td>{{ book.date }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No books issued.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

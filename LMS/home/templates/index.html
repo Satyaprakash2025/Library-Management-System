@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4289db;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .description {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .role-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .role-icon {
+            font-size: 40px;
+            color: #007bff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .role-icon:hover {
+            color: #0056b3;
+        }
+        .role-icon:active {
+            color: #003d7a;
+        }
+        .role-label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Library Management System</div>
+        <div class="description">Please select your role to proceed:</div>
+        <div class="role-icons">
+            <div class="role" onclick="selectRole('admin')">
+                <i class="fas fa-user-shield role-icon"></i>
+                <div class="role-label">Admin</div>
+            </div>
+            <div class="role" onclick="selectRole('student')">
+                <i class="fas fa-user-graduate role-icon"></i>
+                <div class="role-label">Student</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectRole(role) {
+            if (role === 'admin') {
+                window.location.href = 'http://127.0.0.1:8000/login/'; // Replace with actual admin dashboard URL
+            } else if (role === 'student') {
+                window.location.href = 'http://127.0.0.1:8000/login/'; // Replace with actual student dashboard URL
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #392deb;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .header a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .header a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+        .container {
+            margin: 20px;
+        }
+        .issued-books {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .issued-books h2 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/books">Books</a>
+        <a href="/book_issue_list">Book Issue List</a>
+        <a href="/logout/">Logout</a>
+    </div>
+    <div class="container">
+        <h1>Hello Admin ,</h1>
+        <div class="issued-books">
+            <h2>Issued Books Information</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ISBN NO.</th>
+                        <th>Book Title</th>
+                        <th>Issued To</th>
+                        <th>Branch</th>
+                        <th>Regd no.</th>
+                        <th>Issue Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for issue in issues %}
+                    <tr>
+                        <td>{{ issue.isbn_no.isbn_no }}</td>
+                        <td>{{ issue.isbn_no.book_name }}</td>
+                        <td>{{ issue.regd_no }}</td>
+                        <td>{{ issue.regd_no.branch }}</td>
+                        <td>{{ issue.regd_no.regd_no }}</td>
+                        <td>{{ issue.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

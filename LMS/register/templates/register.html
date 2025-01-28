@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    background-color: #fff;
+    padding: 15px; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Reduced width */
+    max-width: 100%;
+}
+
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 15px; /* Reduced margin-bottom */
+}
+
+.signup-container label {
+    display: block;
+    margin: 8px 0 4px; /* Reduced margin */
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="tel"],
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container select {
+    width: calc(100% - 16px); /* Adjusted width to account for reduced padding */
+    padding: 8px; /* Reduced padding */
+    margin-bottom: 10px; /* Reduced margin-bottom */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px; /* Reduced font size */
+}
+
+.signup-container button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px; /* Reduced padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px; /* Reduced font size */
+}
+
+.signup-container button:hover {
+    background-color: #45a049;
+}
+
+.signup-container .login-link {
+    text-align: center;
+    margin-top: 10px; /* Reduced margin-top */
+}
+
+.signup-container .login-link a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 12px; /* Reduced font size */
+}
+
+.signup-container .login-link a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Signup</h2>
+        <form method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="branch">Branch</label>
+            <select id="branch" name="branch" required>
+                <option value="">--Select Branch--</option>
+                <option value="MCA">MCA</option>
+                <option value="MBA">MBA</option>
+                <option value="CSE">CSE</option>
+                <option value="mech">mech</option>
+                <option value="civil">civil</option>
+                <option value="EE">EE</option>
+            </select>
+
+            <label for="year">Year</label>
+            <select id="year" name="year" required>
+                <option value="">--Select Year--</option>
+                <option value="1st">1st</option>
+                <option value="2nd">2nd</option>
+                <option value="3rd">3rd</option>
+                <option value="4th">4th</option>
+            </select>
+
+            <label for="sec">Sec</label>
+            <select id="sec" name="sec" required>
+                <option value="">--Select Sec--</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+
+            <label for="mob">Mobile</label>
+            <input type="tel" id="mob" name="mob" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Sign Up</button>
+{% csrf_token %}
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a href="/login">Login here</a></p>
+        </div>
+{{ msg }}
+    </div>
+</body>
+</html>
